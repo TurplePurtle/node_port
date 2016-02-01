@@ -1,0 +1,13 @@
+{
+  "name": "node_port",
+  "version": "0.0.1",
+  "description": "Elixir NodePort package",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TurplePurtle/node_port.git"
+  },
+  "dependencies": {
+    "node-port": "git+https://github.com/TurplePurtle/node-port-js.git"
+  }
+}

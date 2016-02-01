@@ -1,0 +1,10 @@
+# Elixir
+/_build
+/cover
+/deps
+erl_crash.dump
+*.ez
+
+# Node
+node_modules
+npm-debug.log*
