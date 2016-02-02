@@ -1,4 +1,8 @@
 defmodule NodePort do
+  def start_link(args) do
+    start_pool(args)
+  end
+
   def start_pool(args) do
     pool_name = Keyword.fetch!(args, :name)
     command = Keyword.fetch!(args, :command)
