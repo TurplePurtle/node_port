@@ -26,7 +26,7 @@ In `js/example.js`:
 
 ```javascript
 const N = 4; // number of bytes to encode message length
-const NodePort = require("node-port");
+const NodePort = require("node-port-js");
 const reader = new NodePort.Reader(process.stdin, N);
 const writer = new NodePort.Writer(process.stdout, N);
 
