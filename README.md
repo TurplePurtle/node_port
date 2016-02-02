@@ -20,9 +20,9 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
 ## Example Usage
 
-Each message encodes the length of the message as a big-endian 32-bit integer at the beginning of the message. I made a tiny package to help read that kind of message in node.js ( https://github.com/TurplePurtle/node-port ). Using that, here is an example:
+Each message encodes the length of the message as a big-endian 32-bit integer at the beginning of the message. I made a tiny package to help read that kind of message in node.js ( https://github.com/TurplePurtle/node-port-js ). Using that, here is an example:
 
-In `js/main.js`:
+In `js/example.js`:
 
 ```javascript
 const N = 4; // number of bytes to encode message length
@@ -38,9 +38,10 @@ process.stdin.on("end", () => { process.exit(0); });
 In Elixir:
 
 ```elixir
-NodePort.start :normal, [
+NodePort.start_pool [
   name: :node_pool,
-  command: "node js/main.js",
+  command: "node js/example.js",
   size: 2, max_overflow: 2]
 NodePort.request :node_pool, "{\"x\": 42}"
+# => "got data: 42"
 ```
