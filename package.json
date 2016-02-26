@@ -8,6 +8,6 @@
     "url": "https://github.com/TurplePurtle/node_port.git"
   },
   "dependencies": {
-    "node-port-js": "git+https://github.com/TurplePurtle/node-port-js.git"
+    "node-port-js": "0.1.x"
   }
 }
