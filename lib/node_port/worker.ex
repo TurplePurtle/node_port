@@ -3,8 +3,8 @@ defmodule NodePort.Worker do
 
   ## Client API
 
-  def start_link(cmd) do
-    GenServer.start_link(__MODULE__, cmd)
+  def start_link(args) do
+    GenServer.start_link(__MODULE__, args)
   end
 
   def request(pid, msg) when is_binary(msg) do
@@ -13,8 +13,8 @@ defmodule NodePort.Worker do
 
   ## Server Callbacks
 
-  def init(cmd) do
-    {:ok, {init_vm(cmd)}}
+  def init({cmd, use_stdio}) do
+    {:ok, {init_vm(cmd, use_stdio)}}
   end
 
   def handle_call(msg, _from, {port} = state) do
@@ -29,7 +29,8 @@ defmodule NodePort.Worker do
     Port.close(port)
   end
 
-  defp init_vm(cmd) do
-    Port.open({:spawn, cmd}, [:binary, {:packet, 4}])
+  defp init_vm(cmd, use_stdio) do
+    opt_stdio = if use_stdio, do: :use_stdio, else: :nouse_stdio
+    Port.open({:spawn, cmd}, [:binary, {:packet, 4}, opt_stdio])
   end
 end
