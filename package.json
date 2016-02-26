@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/TurplePurtle/node_port.git"
   },
-  "dependencies": {
+  "devDependencies": {
     "node-port-js": "0.1.x"
   }
 }
